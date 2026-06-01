@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homesphere-web
+  namespace: homesphere
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: homesphere-web
+  template:
+    metadata:
+      labels:
+        app: homesphere-web
+    spec:
+      containers:
+        - name: web
+          image: ghcr.io/owner/homesphere-web:latest
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: homesphere-config
+          resources:
+            requests:
+              cpu: 250m
+              memory: 512Mi
+            limits:
+              cpu: "1"
+              memory: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: homesphere-web
+  namespace: homesphere
+spec:
+  selector:
+    app: homesphere-web
+  ports:
+    - port: 80
+      targetPort: 3000

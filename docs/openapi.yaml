@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  title: Homesphere Home Services & Business Network API
+  version: 1.0.0
+  description: Production API contract for the multi-service marketplace ecosystem.
+servers:
+  - url: https://api.homesphere.example.com/v1
+security:
+  - bearerAuth: []
+paths:
+  /auth/register:
+    post:
+      tags: [Auth]
+      summary: Register a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+      responses:
+        '201': { description: User registered }
+  /auth/otp/verify:
+    post:
+      tags: [Auth]
+      summary: Verify OTP and issue tokens
+      responses:
+        '200': { description: JWT token pair issued }
+  /catalog/services:
+    get:
+      tags: [Catalog]
+      summary: List services by city, category, and search filters
+      parameters:
+        - { name: cityId, in: query, schema: { type: string, format: uuid } }
+        - { name: categorySlug, in: query, schema: { type: string } }
+        - { name: q, in: query, schema: { type: string } }
+      responses:
+        '200': { description: Service list }
+  /catalog/products:
+    get:
+      tags: [Catalog]
+      summary: List hardware and commerce products
+      responses:
+        '200': { description: Product list }
+  /bookings:
+    post:
+      tags: [Bookings]
+      summary: Create a service booking
+      responses:
+        '201': { description: Booking created }
+  /orders:
+    post:
+      tags: [Orders]
+      summary: Create product order
+      responses:
+        '201': { description: Order created }
+  /admin/commission-rules:
+    post:
+      tags: [Admin]
+      summary: Create configurable commission rule
+      responses:
+        '201': { description: Rule created }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    RegisterRequest:
+      type: object
+      required: [role, fullName, phone]
+      properties:
+        role: { type: string, enum: [CUSTOMER, PROVIDER, VENDOR, SHOP_OWNER, INFLUENCER, FRANCHISE, CITY_MANAGER, SUPPORT, ADMIN] }
+        fullName: { type: string }
+        email: { type: string, format: email }
+        phone: { type: string }
+        password: { type: string, minLength: 8 }
