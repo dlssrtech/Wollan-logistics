@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homesphere-config
+  namespace: homesphere
+data:
+  NODE_ENV: production
+  API_PORT: "3000"
+  NEXT_PUBLIC_API_BASE_URL: https://api.homesphere.example.com/v1
