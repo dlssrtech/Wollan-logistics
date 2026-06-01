@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homesphere-api
+  namespace: homesphere
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: homesphere-api
+  template:
+    metadata:
+      labels:
+        app: homesphere-api
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/owner/homesphere-api:latest
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: homesphere-config
+            - secretRef:
+                name: homesphere-secrets
+          readinessProbe:
+            httpGet:
+              path: /v1/auth/health
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /v1/auth/health
+              port: 3000
+            initialDelaySeconds: 30
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 250m
+              memory: 512Mi
+            limits:
+              cpu: "1"
+              memory: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: homesphere-api
+  namespace: homesphere
+spec:
+  selector:
+    app: homesphere-api
+  ports:
+    - port: 80
+      targetPort: 3000
