@@ -9,19 +9,16 @@ metadata:
     alb.ingress.kubernetes.io/target-type: ip
 spec:
   rules:
-    - host: api.homesphere.example.com
+    - host: sphere.dlssr.in
       http:
         paths:
-          - path: /
+          - path: /v1
             pathType: Prefix
             backend:
               service:
                 name: homesphere-api
                 port:
                   number: 80
-    - host: app.homesphere.example.com
-      http:
-        paths:
           - path: /
             pathType: Prefix
             backend:

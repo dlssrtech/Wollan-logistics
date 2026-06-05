@@ -4,7 +4,7 @@ info:
   version: 1.0.0
   description: Production API contract for the multi-service marketplace ecosystem.
 servers:
-  - url: https://api.homesphere.example.com/v1
+  - url: https://sphere.dlssr.in/v1
 security:
   - bearerAuth: []
 paths:
