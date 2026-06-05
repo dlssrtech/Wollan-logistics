@@ -103,10 +103,22 @@ export const panelAccessList: PanelAccess[] = [
   },
 ];
 
+export function normalizePanelSlug(value: string) {
+  return value.trim().toLowerCase().replaceAll('_', '-').replaceAll(' ', '-');
+}
+
 export function getPanelUrl(slug: string) {
   return `${basePanelUrl}/panels/${slug}`;
 }
 
 export function findPanelBySlug(slug: string) {
+  const normalizedSlug = normalizePanelSlug(slug);
+
+  return panelAccessList.find((panel) => {
+    const normalizedRole = normalizePanelSlug(panel.role);
+    const normalizedName = normalizePanelSlug(panel.name.replace(/ panel$/i, '').replace(/ app$/i, ''));
+
+    return [panel.slug, normalizedRole, normalizedName].includes(normalizedSlug);
+  });
   return panelAccessList.find((panel) => panel.slug === slug);
 }
