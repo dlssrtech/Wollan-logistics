@@ -1,5 +1,17 @@
 import Link from 'next/link';
 import { panels } from './panels-data';
+const panels = [
+  'Customer App',
+  'Service Provider App',
+  'Shop Owner Panel',
+  'Influencer Panel',
+  'Franchise Panel',
+  'City Manager Panel',
+  'Support Team Panel',
+  'Super Admin Panel',
+];
+import Link from 'next/link';
+import { getPanelUrl, panelAccessList } from './panel-directory';
 
 const metrics = ['Revenue', 'Bookings', 'Products', 'Influencers', 'Franchises', 'Cities', 'LTV', 'CAC'];
 
@@ -49,6 +61,37 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {panels.map((panel) => (
+            <article key={panel} className="rounded-2xl bg-slate-900 p-6 shadow-lg ring-1 ring-white/10">
+              <h3 className="text-xl font-semibold">{panel}</h3>
+              <p className="mt-3 text-sm text-slate-400">Role-aware workflows, analytics, wallet, notifications, and audit-ready operations.</p>
+          {panelAccessList.map((panel) => (
+            <article key={panel.slug} className="rounded-2xl bg-slate-900 p-6 shadow-lg ring-1 ring-white/10">
+              <h3 className="text-xl font-semibold">{panel.name}</h3>
+              <p className="mt-3 text-sm text-slate-400">{panel.description}</p>
+              <dl className="mt-5 space-y-2 text-xs text-slate-300">
+                <div>
+                  <dt className="font-semibold uppercase tracking-wide text-slate-500">URL</dt>
+                  <dd className="mt-1 break-all font-mono text-cyan-200">{getPanelUrl(panel.slug)}</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold uppercase tracking-wide text-slate-500">Login</dt>
+                  <dd className="mt-1 break-all font-mono text-cyan-200">{panel.email}</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold uppercase tracking-wide text-slate-500">Password</dt>
+                  <dd className="mt-1 font-mono text-cyan-200">{panel.password}</dd>
+                </div>
+              </dl>
+              <Link
+                href={`/panels/${panel.slug}`}
+                className="mt-5 inline-flex rounded-full bg-cyan-400 px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-cyan-200"
+              >
+                Open panel
+              </Link>
+            </article>
+          ))}
         </div>
       </section>
     </main>

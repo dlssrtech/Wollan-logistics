@@ -7,6 +7,22 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint ."
+    "lint": ""scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": ""scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "tsc --noEmit -p tsconfig.json"
+},"
+    "lint": ""scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint && tsc --noEmit -p tsconfig.json"
+},"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
