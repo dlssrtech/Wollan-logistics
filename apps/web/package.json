@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "smoke-test": "node scripts/smoke-test.mjs",
+    "lint": "eslint ."
     "lint": "eslint ."
     "lint": ""scripts": {
   "dev": "next dev",

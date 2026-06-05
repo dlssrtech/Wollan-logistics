@@ -6,6 +6,10 @@
     "start": "node dist/main.js",
     "start:dev": "tsc --watch --preserveWatchOutput -p tsconfig.json",
     "start:prod": "node dist/main.js",
+    "build": "nest build",
+    "smoke-test": "node scripts/smoke-test.mjs",
+    "lint": "eslint \"src/**/*.ts\"",
+    "test": "jest --passWithNoTests"
     "build": "tsc -p tsconfig.json",
     "test": "node scripts/smoke-test.mjs"
     "start:prod": "node dist/main.js",
