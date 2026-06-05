@@ -84,6 +84,6 @@ docker compose up --build
 
 ## Local Panel Access
 
-After `docker compose up --build`, open the web app at `http://localhost:3001`. Separate panel URLs and demo credentials are listed in `docs/panel-access.md`.
+After deployment, open the web app at `https://sphere.dlssr.in`. Separate panel URLs and demo credentials are listed in `docs/panel-access.md`.
 
 The source skeleton is intentionally modular so each panel and service can evolve independently while sharing common contracts and platform policies.

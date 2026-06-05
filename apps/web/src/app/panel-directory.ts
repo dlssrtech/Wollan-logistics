@@ -8,7 +8,7 @@ export type PanelAccess = {
   highlights: string[];
 };
 
-export const basePanelUrl = process.env.NEXT_PUBLIC_WEB_BASE_URL ?? 'http://localhost:3001';
+export const basePanelUrl = process.env.NEXT_PUBLIC_WEB_BASE_URL ?? 'https://sphere.dlssr.in';
 
 export const panelAccessList: PanelAccess[] = [
   {
