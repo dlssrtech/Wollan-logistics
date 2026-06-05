@@ -6,6 +6,8 @@ Set `NEXT_PUBLIC_WEB_BASE_URL=https://sphere.dlssr.in` and `NEXT_PUBLIC_API_BASE
 
 > These credentials are demo QA credentials for preview environments only. Replace them with secure seeded users and a real authentication flow before production.
 
+The API serves `/`, `/panels`, and `/panels/:slug` as an HTML fallback as well, so `https://sphere.dlssr.in/` will show the panel directory instead of the NestJS `Cannot GET /` JSON response even when the domain points at the API service.
+
 | Panel | URL | Email | Password | Role |
 | --- | --- | --- | --- | --- |
 | Customer App | `https://sphere.dlssr.in/panels/customer` | `customer@homesphere.local` | `Demo@12345` | `CUSTOMER` |
