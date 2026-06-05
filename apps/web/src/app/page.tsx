@@ -1,13 +1,5 @@
-const panels = [
-  'Customer App',
-  'Service Provider App',
-  'Shop Owner Panel',
-  'Influencer Panel',
-  'Franchise Panel',
-  'City Manager Panel',
-  'Support Team Panel',
-  'Super Admin Panel',
-];
+import Link from 'next/link';
+import { panels } from './panels-data';
 
 const metrics = ['Revenue', 'Bookings', 'Products', 'Influencers', 'Franchises', 'Cities', 'LTV', 'CAC'];
 
@@ -32,13 +24,31 @@ export default function HomePage() {
           ))}
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {panels.map((panel) => (
-            <article key={panel} className="rounded-2xl bg-slate-900 p-6 shadow-lg ring-1 ring-white/10">
-              <h3 className="text-xl font-semibold">{panel}</h3>
-              <p className="mt-3 text-sm text-slate-400">Role-aware workflows, analytics, wallet, notifications, and audit-ready operations.</p>
-            </article>
-          ))}
+        <div className="space-y-4">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Panel status</p>
+            <h2 className="mt-2 text-3xl font-black">All role panels are linked and ready to validate</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {panels.map((panel) => (
+              <Link
+                key={panel.slug}
+                className="group rounded-2xl bg-slate-900 p-6 shadow-lg ring-1 ring-white/10 transition hover:-translate-y-1 hover:bg-slate-800 hover:ring-cyan-300/60"
+                href={`/panels/${panel.slug}`}
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.25em] text-emerald-300">
+                    {panel.status}
+                  </span>
+                  <span aria-hidden="true" className="text-cyan-300 transition group-hover:translate-x-1">
+                    →
+                  </span>
+                </div>
+                <h3 className="mt-4 text-xl font-semibold">{panel.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-400">{panel.summary}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </main>
