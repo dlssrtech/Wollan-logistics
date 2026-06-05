@@ -30,3 +30,10 @@ Set `NEXT_PUBLIC_WEB_BASE_URL=https://sphere.dlssr.in` and `NEXT_PUBLIC_API_BASE
 | API orders health | `https://sphere.dlssr.in/v1/orders/health` |
 | API payments health | `https://sphere.dlssr.in/v1/payments/health` |
 | API admin health | `https://sphere.dlssr.in/v1/admin/health` |
+| API auth health | `http://localhost:3000/v1/auth/health` |
+| API users health | `http://localhost:3000/v1/users/health` |
+| API marketplace health | `http://localhost:3000/v1/marketplace/health` |
+| API bookings health | `http://localhost:3000/v1/bookings/health` |
+| API orders health | `http://localhost:3000/v1/orders/health` |
+| API payments health | `http://localhost:3000/v1/payments/health` |
+| API admin health | `http://localhost:3000/v1/admin/health` |
