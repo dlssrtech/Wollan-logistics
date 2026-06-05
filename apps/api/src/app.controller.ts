@@ -104,21 +104,6 @@ function escapeHtml(value: string) {
     .replaceAll("'", '&#039;');
 }
 
-function normalizePanelSlug(value: string) {
-  return value.trim().toLowerCase().replaceAll('_', '-').replaceAll(' ', '-');
-}
-
-function findDemoPanel(value: string) {
-  const normalizedValue = normalizePanelSlug(value);
-
-  return demoPanels.find((panel) => {
-    const normalizedRole = normalizePanelSlug(panel.role);
-    const normalizedName = normalizePanelSlug(panel.name.replace(/ panel$/i, '').replace(/ app$/i, ''));
-
-    return [panel.slug, normalizedRole, normalizedName].includes(normalizedValue);
-  });
-}
-
 function panelUrl(slug: string) {
   return `${deploymentWebBaseUrl}/panels/${slug}`;
 }
@@ -225,7 +210,6 @@ export class AppController {
   @Get('panels/:slug')
   @Header('Content-Type', 'text/html; charset=utf-8')
   getPanel(@Param('slug') slug: string) {
-    const panel = findDemoPanel(slug);
     const panel = demoPanels.find((item) => item.slug === slug);
 
     if (!panel) {
