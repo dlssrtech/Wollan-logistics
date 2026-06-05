@@ -81,4 +81,9 @@ cp .env.example .env
 docker compose up --build
 ```
 
+
+## Local Panel Access
+
+After deployment, open the web app at `https://sphere.dlssr.in`. Separate panel URLs and demo credentials are listed in `docs/panel-access.md`.
+
 The source skeleton is intentionally modular so each panel and service can evolve independently while sharing common contracts and platform policies.

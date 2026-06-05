@@ -8,6 +8,11 @@
     "start:prod": "node dist/main.js",
     "build": "tsc -p tsconfig.json",
     "test": "node scripts/smoke-test.mjs"
+    "start:prod": "node dist/main.js",
+    "build": "tsc -p tsconfig.json",
+    "lint": "tsc --noEmit -p tsconfig.json",
+    "test": "node --test",
+    "audit:offline": "node scripts/audit-offline.mjs"
   },
   "dependencies": {
     "@nestjs/common": "^10.4.0",
