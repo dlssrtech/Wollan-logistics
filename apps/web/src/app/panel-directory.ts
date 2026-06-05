@@ -120,4 +120,5 @@ export function findPanelBySlug(slug: string) {
 
     return [panel.slug, normalizedRole, normalizedName].includes(normalizedSlug);
   });
+  return panelAccessList.find((panel) => panel.slug === slug);
 }

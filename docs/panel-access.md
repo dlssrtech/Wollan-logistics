@@ -7,6 +7,7 @@ Set `NEXT_PUBLIC_WEB_BASE_URL=https://sphere.dlssr.in` and `NEXT_PUBLIC_API_BASE
 > These credentials are demo QA credentials for preview environments only. Replace them with secure seeded users and a real authentication flow before production.
 
 The API serves `/`, `/panels`, and `/panels/:slug` as an HTML fallback as well, so `https://sphere.dlssr.in/` will show the panel directory instead of the NestJS `Cannot GET /` JSON response even when the domain points at the API service. Panel routes accept both canonical slugs and role-style aliases, so `/panels/super-admin` and `/panels/SUPER_ADMIN` both open the Super Admin panel.
+The API serves `/`, `/panels`, and `/panels/:slug` as an HTML fallback as well, so `https://sphere.dlssr.in/` will show the panel directory instead of the NestJS `Cannot GET /` JSON response even when the domain points at the API service.
 
 | Panel | URL | Email | Password | Role |
 | --- | --- | --- | --- | --- |
@@ -32,3 +33,10 @@ The API serves `/`, `/panels`, and `/panels/:slug` as an HTML fallback as well, 
 | API orders health | `https://sphere.dlssr.in/v1/orders/health` |
 | API payments health | `https://sphere.dlssr.in/v1/payments/health` |
 | API admin health | `https://sphere.dlssr.in/v1/admin/health` |
+| API auth health | `http://localhost:3000/v1/auth/health` |
+| API users health | `http://localhost:3000/v1/users/health` |
+| API marketplace health | `http://localhost:3000/v1/marketplace/health` |
+| API bookings health | `http://localhost:3000/v1/bookings/health` |
+| API orders health | `http://localhost:3000/v1/orders/health` |
+| API payments health | `http://localhost:3000/v1/payments/health` |
+| API admin health | `http://localhost:3000/v1/admin/health` |

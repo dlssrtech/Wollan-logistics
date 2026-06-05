@@ -226,6 +226,7 @@ export class AppController {
   @Header('Content-Type', 'text/html; charset=utf-8')
   getPanel(@Param('slug') slug: string) {
     const panel = findDemoPanel(slug);
+    const panel = demoPanels.find((item) => item.slug === slug);
 
     if (!panel) {
       throw new NotFoundException(`Unknown panel: ${slug}`);
