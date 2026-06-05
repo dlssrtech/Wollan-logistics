@@ -4,6 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node dist/main.js",
+    "start:dev": "tsc --watch --preserveWatchOutput -p tsconfig.json",
+    "start:prod": "node dist/main.js",
+    "build": "tsc -p tsconfig.json",
+    "test": "node scripts/smoke-test.mjs"
     "start:prod": "node dist/main.js",
     "build": "tsc -p tsconfig.json",
     "lint": "tsc --noEmit -p tsconfig.json",
@@ -23,6 +27,7 @@
     "rxjs": "^7.8.1"
   },
   "devDependencies": {
+    "@nestjs/testing": "^10.4.0",
     "@types/node": "^22.7.4",
     "typescript": "^5.6.2"
   }

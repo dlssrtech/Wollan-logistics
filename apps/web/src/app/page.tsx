@@ -1,3 +1,13 @@
+const panels = [
+  'Customer App',
+  'Service Provider App',
+  'Shop Owner Panel',
+  'Influencer Panel',
+  'Franchise Panel',
+  'City Manager Panel',
+  'Support Team Panel',
+  'Super Admin Panel',
+];
 import Link from 'next/link';
 import { getPanelUrl, panelAccessList } from './panel-directory';
 
@@ -25,6 +35,10 @@ export default function HomePage() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {panels.map((panel) => (
+            <article key={panel} className="rounded-2xl bg-slate-900 p-6 shadow-lg ring-1 ring-white/10">
+              <h3 className="text-xl font-semibold">{panel}</h3>
+              <p className="mt-3 text-sm text-slate-400">Role-aware workflows, analytics, wallet, notifications, and audit-ready operations.</p>
           {panelAccessList.map((panel) => (
             <article key={panel.slug} className="rounded-2xl bg-slate-900 p-6 shadow-lg ring-1 ring-white/10">
               <h3 className="text-xl font-semibold">{panel.name}</h3>
