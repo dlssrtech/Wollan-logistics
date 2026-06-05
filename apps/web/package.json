@@ -9,17 +9,17 @@
     "smoke-test": "node scripts/smoke-test.mjs",
     "lint": "eslint ."
     "lint": "eslint ."
-    "lint": "
+    "lint": 
   "dev": "next dev",
   "build": "next build",
   "start": "next start",
-  "lint": "
+  "lint": 
   "dev": "next dev",
   "build": "next build",
   "start": "next start",
   "lint": "tsc --noEmit -p tsconfig.json"
 },"
-    "lint": "
+    "lint": 
   "dev": "next dev",
   "build": "next build",
   "start": "next start",
