@@ -2,6 +2,18 @@
 node_modules/
 
 # Build outputs
+dist/
+.next/
+out/
+build/
+
+# Logs
+*.log
+
+# Local environment files
+.env
+.env.local
+.env.*.local
 .next/
 dist/
 build/
