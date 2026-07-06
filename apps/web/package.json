@@ -1,5 +1,5 @@
 {
-  "name": "@homesphere/web",
+  "name": "@wollan-logistics/web",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -7,24 +7,7 @@
     "build": "next build",
     "start": "next start",
     "smoke-test": "node scripts/smoke-test.mjs",
-    "lint": "eslint ."
-    "lint": "eslint ."
-    "lint": 
-  "dev": "next dev",
-  "build": "next build",
-  "start": "next start",
-  "lint": 
-  "dev": "next dev",
-  "build": "next build",
-  "start": "next start",
-  "lint": "tsc --noEmit -p tsconfig.json"
-},"
-    "lint": 
-  "dev": "next dev",
-  "build": "next build",
-  "start": "next start",
-  "lint": "next lint && tsc --noEmit -p tsconfig.json"
-},"
+    "lint": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
@@ -38,10 +21,10 @@
     "@types/react": "^19.2.6",
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.20",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.2.6",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
-    "typescript": "^5.9.3",
-    "eslint": "^9.0.0",
-    "eslint-config-next": "^16.2.6"
+    "typescript": "^5.9.3"
   }
 }
